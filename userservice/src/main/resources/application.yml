@@ -26,10 +26,21 @@ spring:
 #      mode: never        # set to 'always' if you are using schema.sql/data.sql
 
 server:
-  port: 8080
+  port: 8081
 
 logging:
   level:
     root: INFO
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql: TRACE   # shows SQL parameters
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true         # Register IP instead of hostname
+    instance-id: ${spring.application.name}:${server.port}  # clean ID format
+
