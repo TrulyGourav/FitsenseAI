@@ -67,6 +67,7 @@ public class UserService {
 
     public Boolean existByUserId(String userId) {
         log.info("Calling User Service for {}", userId);
-        return repository.existsByKeycloakId(userId);
+//        return repository.existsByKeycloakId(userId);
+        return repository.existsById(userId);
     }
 }
